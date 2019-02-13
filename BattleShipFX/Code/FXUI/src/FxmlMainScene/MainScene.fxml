@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane prefHeight="747.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FxmlMainScene.MainController">
+   <content>
+      <StackPane>
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="683.0" prefWidth="1280.0">
+               <children>
+                  <ImageView fitHeight="747.0" fitWidth="1326.0" layoutX="-46.0" layoutY="-10.0">
+                     <image>
+                        <Image url="@/FxmlMainScene/MainScene.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="PlayerNLabel" layoutX="179.0" layoutY="4.0" text="player n." textFill="#2404a4">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
+                  </Label>
+                  <Label fx:id="PlayerScoreLabel" layoutX="182.0" layoutY="54.0" text="player score:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow choke="0.27" />
+                     </effect>
+                  </Label>
+                  <Label layoutX="174.0" layoutY="99.0" text="Battleships Board:" underline="true">
+                     <font>
+                        <Font name="System Bold" size="33.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="872.0" layoutY="91.0" text="Attack Board:" underline="true">
+                     <font>
+                        <Font name="System Bold" size="33.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="TurnNLabel" layoutX="7.0" layoutY="2.0" text="Turn n.">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="HitsLabel" layoutX="147.0" layoutY="591.0" text="Hits:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting bumpInput="$null">
+                           <light>
+                              <Light.Distant color="#111111" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Label>
+                  <Label fx:id="MissesLabel" layoutX="147.0" layoutY="624.0" text="Misses:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#403c3c" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Label>
+                  <Label fx:id="AverageTimeLabel" layoutX="146.0" layoutY="653.0" text="Average move time:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#403c3c" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Label>
+                  <Label fx:id="BattleshipsLeftToOpponent" layoutX="806.0" layoutY="549.0" text="Battleships left:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#403c3c" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Label>
+                  <VBox fx:id="BattleShipBoard" layoutX="150.0" layoutY="154.0" prefHeight="350.0" prefWidth="350.0" />
+                  <VBox fx:id="AttackBoard" layoutX="808.0" layoutY="150.0" prefHeight="350.0" prefWidth="350.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="808.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="150.0" />
+                  <HBox fx:id="MinesstackBox" layoutX="906.0" layoutY="25.0" prefHeight="22.0" prefWidth="320.0" spacing="1.0" />
+                  <Button fx:id="PrevScene" layoutX="560.0" layoutY="180.0" mnemonicParsing="false" onMouseClicked="#OnPrevButtonPress" prefHeight="35.0" prefWidth="60.0" text="prev" visible="false" />
+                  <Button fx:id="NextScene" layoutX="660.0" layoutY="180.0" mnemonicParsing="false" onMouseClicked="#OnNextButtonPress" prefHeight="35.0" prefWidth="60.0" text="next" visible="false" />
+                  <Button fx:id="loadNewGame" layoutX="10.0" layoutY="585.0" mnemonicParsing="false" onMouseClicked="#OnLoadNewGameButton" text="load new game" visible="false" />
+                  <Button fx:id="RestartGame" layoutX="10.0" layoutY="545.0" mnemonicParsing="false" onMouseClicked="#OnRestartGameButton" text="restart game" visible="false" />
+                  <Label layoutX="826.0" layoutY="16.0" onMouseClicked="#QuitGame" text="Mines:" textFill="#f50e15">
+                     <font>
+                        <Font name="System Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#ff1f1f" layoutX="62.0" layoutY="653.0" onMouseClicked="#QuitGame" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label layoutX="45.0" layoutY="642.0" onMouseClicked="#QuitGame" text="Quit" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="OpponentsScoreLabel" layoutX="813.0" layoutY="657.0" text="Opponent's score:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow choke="0.27" />
+                     </effect>
+                  </Label>
+                  <Label fx:id="PlayerStatus" layoutX="158.0" layoutY="502.0" text="Player status:" textFill="#2302f5" underline="true">
+                     <effect>
+                        <InnerShadow choke="0.27" />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="OpponentStatus" layoutX="815.0" layoutY="496.0" text="Opponent's status:" textFill="#2302f5" underline="true">
+                     <effect>
+                        <InnerShadow choke="0.27" />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="BattleshipsLeftToOpponent1" layoutX="142.0" layoutY="552.0" text="Battleships left:">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#403c3c" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="336.0" layoutY="550.0" prefHeight="93.0" prefViewportHeight="97.0" prefViewportWidth="232.0" prefWidth="177.0">
+                     <content>
+                        <TextArea fx:id="PlayerShips" prefHeight="90.0" prefWidth="174.0" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane layoutX="992.0" layoutY="548.0" prefHeight="95.0" prefViewportHeight="90.0" prefViewportWidth="174.0" prefWidth="177.0">
+                     <content>
+                        <TextArea fx:id="OpponentShipLeft" layoutX="897.0" layoutY="599.0" prefHeight="92.0" prefWidth="173.0" />
+                     </content>
+                  </ScrollPane>
+                  <ImageView fx:id="AnimatePic" fitHeight="129.0" fitWidth="222.0" layoutX="536.0" layoutY="2.0">
+                     <image>
+                        <Image url="@/ResourcesPic/logo.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </content>
+</ScrollPane>
